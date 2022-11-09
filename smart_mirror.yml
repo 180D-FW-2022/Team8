@@ -1,0 +1,54 @@
+context:
+  expressions:
+    changeColor:
+      - "@turn (all, the) lights (to) $color:color"
+      - "@turn (the) $location:location (color, @lights) (to) $color:color"
+      - "@turn (the) [color, @lights] [at, in] (the) $location:location (to)
+        $color:color"
+      - "@turn (the) [color, @lights] (to) $color:color [at,in] (the)
+        $location:location"
+    changeLightState:
+      - "@switch $state:state (all, the) ($location:location) @lights"
+      - "@switch (all, the) ($location:location) @lights $state:state"
+      - "@switch $state:state (the) @lights [at, in] (the) $location:location"
+      - "@switch (the) @lights [in, at] the $location:location $state:state"
+    changeLightStateOff:
+      - shut off (all, the) ($location:location) @lights
+      - shut (all, the) ($location:location) @lights off
+      - shut off (the) @lights [at, in] (the) $location:location
+      - shut (the) @lights off [at, in] (the) $location:location
+      - shut (the) @lights [at, in] (the) $location:location off
+  slots:
+    color:
+      - blue
+      - green
+      - orange
+      - pink
+      - purple
+      - red
+      - white
+      - yellow
+    state:
+      - off
+      - on
+    location:
+      - bathroom
+      - bedroom
+      - closet
+      - hallway
+      - kitchen
+      - living room
+      - pantry
+  macros:
+    lights:
+      - lights
+      - light
+    turn:
+      - turn
+      - make
+      - change
+      - set
+      - switch
+    switch:
+      - switch
+      - turn
