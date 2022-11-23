@@ -1,0 +1,7 @@
+1. Do this step once
+sudo pip3 install pvrhino
+
+2.
+python rhino_engine.py --access_key 4n7j8/reOKePM5xXFp+CmSFnBsgRZ5EF2m9bjghxif/OpZCG/LHcnw== --context_path ./demo.rhn 
+	*demo.rhn should be switched out with the smart mirror context
+	*context_path is just a string to the location of the .rhn file
