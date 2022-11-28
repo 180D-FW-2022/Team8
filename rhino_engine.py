@@ -13,10 +13,11 @@ import argparse
 import struct
 import wave
 from threading import Thread
-
+import spotify
+import os
 import pvrhino
 from pvrecorder import PvRecorder
-import pyautogui
+
 
 class RhinoDemo(Thread):
     """
@@ -120,8 +121,8 @@ class RhinoDemo(Thread):
                         for slot, value in inference.slots.items():
                             print("    %s : '%s'" % (slot, value))  #TODO: this is where i add the code to get spotify to play
                             if slot == "beverage" and value == "americano":
-                                print('I ordered an americano, this should press: space')
-                                pyautogui.hotkey('space')
+                                print('I ordered an americano, this should open the spotify gui')
+                                os.system('python spotify.py')
                         print('  }')
                         print('}\n')
                         
