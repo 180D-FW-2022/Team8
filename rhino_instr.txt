@@ -5,3 +5,12 @@ sudo pip3 install pvrhino
 python rhino_engine.py --access_key 4n7j8/reOKePM5xXFp+CmSFnBsgRZ5EF2m9bjghxif/OpZCG/LHcnw== --context_path ./demo.rhn 
 	*demo.rhn should be switched out with the smart mirror context
 	*context_path is just a string to the location of the .rhn file
+
+3. TO DO: right now, i am working with the demo context path which is about coffee. this will be changed once i feel confident and download our actual context path. i just don't want to waste downloads with this service
+
+Ask for an americano and then go to this site: http://localhost:8080 and press start playing
+Right now, it is signed into my account. Press: start_playing and this will play a song on my phone. In order to control a device, you have to be
+signed into my account and added as a device. Right now, the program will freak out and start spewing out overflow errors but don't worry about them
+
+
+https://developer.spotify.com/console/get-users-available-devices/
