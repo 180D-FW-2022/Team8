@@ -60,6 +60,7 @@ SPOTIPY_CLIENT_ID='a5ba3a2595154188bc92d807932a7d1c'
 SPOTIPY_CLIENT_SECRET='6f6244fdcb304ac986d709ac1feedb7d'
 SPOTIPY_REDIRECT_URI='http://localhost:8080'
 scope = "user-read-playback-state,user-modify-playback-state"
+device_id = np.array( [['9ccb1139563c330086c0758871e1d7210201b0ec'], ['f18bf9d465b761b38a3af2f296db8fcb354de94d']] )
 
 sp_oauth = SpotifyOAuth(SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET, scope=scope)
 
@@ -155,33 +156,5 @@ if __name__ == '__main__':
 device_id = np.array( [ ['f18bf9d465b761b38a3af2f296db8fcb354de94d'],['96dd25fddb7899ed0c54eca8157199ceaf670d1d'], ['9ccb1139563c330086c0758871e1d7210201b0ec'] ] )
 
 
-# To print the JSON response from
-# browser in a readable format.
-# optional can be removed
-# print(json.dumps(user_name, sort_keys=True, indent=4))
 
-# while True:
-# 	print("Welcome to the project, " + user_name['display_name'])
-# 	print("1 - Web Browser")
-# 	print("2 - Spotify Browser")
-# 	user_input = int(input("Select Your Device ID: "))
-# 	if user_input == 1:	device_ID = device_id[0][0]
-# 	elif user_input == 2: device_ID = device_id[1][0]
-# 	elif user_input == 3: device_ID = device_id[2][0]
-# 	print("0 - Exit the console")
-# 	print("1 - Search for a Song")
-# 	user_input = int(input("Enter Your Choice: "))
-# 	if user_input == 1:
-# 		#search_song = input("Enter the song name: ")
-# 		results = spotifyObject.start_playback(device_id=device_ID)#, context_uri="spotify:artist:5cj0lLjcoR7YOSnhnX0Po5")
-# 		#results = spotifyObject.search(search_song, 1, 0, "track")
-# 		#songs_dict = results['tracks']
-# 		#song_items = songs_dict['items']
-# 		#song = song_items[0]['external_urls']['spotify']
-# 		#webbrowser.open(song)
-# 		#print('Song has opened in your browser.')
-# 	elif user_input == 0:
-# 		print("Good Bye, Have a great day!")
-# 		break
-# 	else:
-# 		print("Please enter valid user-input.")
+
