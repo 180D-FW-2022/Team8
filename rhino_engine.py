@@ -13,7 +13,7 @@ import argparse
 import struct
 import wave
 from threading import Thread
-import spotify
+#import spotify
 import os
 import pvrhino
 from pvrecorder import PvRecorder
