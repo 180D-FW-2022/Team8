@@ -400,15 +400,15 @@ while True:
     #if 1:                       #Change to '0' to stop  showing the angles from the Kalman filter
       #  outputString +="# kalmanX %5.2f   kalmanY %5.2f #" % (kalmanX,kalmanY)
 
-    print(outputString)
+#   print(outputString)
     
     if((CFangleX<70) and (CFangleX>-70)):
-        print("off")
+ #       print("off")
         subprocess.run('vcgencmd display_power 0', shell=True)
     else:
-        print("on")
+  #      print("on")
         subprocess.run('vcgencmd display_power 1', shell=True)
 
     #slow program down a bit, makes the output more readable
-    time.sleep(0.03)
+#    time.sleep(0.03)
     
