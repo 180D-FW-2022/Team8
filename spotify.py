@@ -60,8 +60,8 @@ SPOTIPY_CLIENT_ID='a5ba3a2595154188bc92d807932a7d1c'
 SPOTIPY_CLIENT_SECRET='6f6244fdcb304ac986d709ac1feedb7d'
 SPOTIPY_REDIRECT_URI='http://localhost:8080'
 scope = "user-read-playback-state,user-modify-playback-state"
-device_id = np.array( [['9ccb1139563c330086c0758871e1d7210201b0ec'], ['f18bf9d465b761b38a3af2f296db8fcb354de94d']] )
-
+device_id = np.array( [['9ccb1139563c330086c0758871e1d7210201b0ec'], ['f18bf9d465b761b38a3af2f296db8fcb354de94d'], ['4cac88a0b6d837ba26b5c2f809827e29f94af828'] ])
+#macbook, iphone, raspberrypi
 sp_oauth = SpotifyOAuth(SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET, scope=scope)
 
 @app.route('/')
@@ -128,7 +128,7 @@ def start_playback():
     if not auth_manager.validate_token(cache_handler.get_cached_token()):
         return redirect('/')
     spotify = spotipy.Spotify(auth_manager=sp_oauth)
-    return spotify.start_playback(device_id='f18bf9d465b761b38a3af2f296db8fcb354de94d')
+    return spotify.start_playback(device_id=device_id[2][0])
 
 	
 
