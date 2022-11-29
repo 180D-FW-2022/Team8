@@ -56,7 +56,7 @@ def runMediaPipe():
       if not(start_init):
         end_delay = time.time()
         start_init = True
-      elif abs(end_delay-begin_delay) > 2.5: #<-------- Adjust recognition delay
+      elif abs(end_delay-begin_delay) > 1.75: #<-------- Adjust recognition delay
         #print(gestures(hand_nodes)) #Console output to test what gestures are recognized
         currentGesture = gestures(hand_nodes)
         if (currentGesture == pastGesture and currentGesture != ""):
@@ -66,7 +66,7 @@ def runMediaPipe():
         start_init = False
       drawing.draw_landmarks(frm, hand_nodes, hands.HAND_CONNECTIONS) #connects the nodes in video output
 
-    cv2.imshow("window", frm) # Video output window (ONLY FOR TESTING PURPOSE WE WONT HAVE VIDEO OUT FOR THE MIRROR)
+    #cv2.imshow("window", frm) # Video output window (ONLY FOR TESTING PURPOSE WE WONT HAVE VIDEO OUT FOR THE MIRROR)
     if cv2.waitKey(1) == 27: # 'Escape' key to cancel program
       cv2.destroyAllWindows()
       cap.realse()
