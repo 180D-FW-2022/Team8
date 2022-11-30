@@ -60,7 +60,7 @@ Session(app)
 SPOTIPY_CLIENT_ID='a5ba3a2595154188bc92d807932a7d1c'
 SPOTIPY_CLIENT_SECRET='6f6244fdcb304ac986d709ac1feedb7d'
 SPOTIPY_REDIRECT_URI='http://localhost:8090'
-scope = "user-read-playback-state,user-modify-playback-state"
+scope = "user-read-playback-state user-modify-playback-state"
 
 macbook ='9ccb1139563c330086c0758871e1d7210201b0ec'
 iphone ='f18bf9d465b761b38a3af2f296db8fcb354de94d'
@@ -141,7 +141,6 @@ def currently_playing():
     track = spotify.currently_playing()
     if not track is None:
         return track
-    return "No track currently playing."
 
 @app.route('/start_playback')
 def start_playback():
@@ -149,25 +148,34 @@ def start_playback():
     auth_manager = spotipy.oauth2.SpotifyOAuth(client_id=SPOTIPY_CLIENT_ID, 
                                                client_secret=SPOTIPY_CLIENT_SECRET, 
                                                redirect_uri=SPOTIPY_REDIRECT_URI, 
-                                               scope='user-read-currently-playing playlist-modify-private',
+                                               #scope='user-read-currently-playing user-modify-playback-state user-read-playback-state',
                                                cache_handler=cache_handler,
                                                show_dialog=True)
+    
     #auth_manager = spotipy.oauth2.SpotifyOAuth(cache_handler=cache_handler)
     if not auth_manager.validate_token(cache_handler.get_cached_token()):
+        print('here')
         return redirect('/')
-    spotify = spotipy.Spotify(auth_manager=sp_oauth)
-    return spotify.start_playback(device_id=raspi)
+    spotify = spotipy.Spotify(auth_manager=auth_manager)
+    spotify.start_playback(device_id=macbook)
+    return "You are now playing a song" #spotify.start_playback(device_id=raspi)
 
 	
 
 @app.route('/current_user')
 def current_user():
     cache_handler = spotipy.cache_handler.FlaskSessionCacheHandler(session)
-    auth_manager = spotipy.oauth2.SpotifyOAuth(cache_handler=cache_handler)
+    auth_manager = spotipy.oauth2.SpotifyOAuth(client_id=SPOTIPY_CLIENT_ID, 
+                                               client_secret=SPOTIPY_CLIENT_SECRET, 
+                                               redirect_uri=SPOTIPY_REDIRECT_URI, 
+                                               cache_handler=cache_handler,
+                                               show_dialog=True)
+    #auth_manager = spotipy.oauth2.SpotifyOAuth(cache_handler=cache_handler)
     if not auth_manager.validate_token(cache_handler.get_cached_token()):
         return redirect('/')
     spotify = spotipy.Spotify(auth_manager=auth_manager)
     return spotify.current_user()
+
 
 # @app.route('/end_spotify')
 # def end_spotify():
