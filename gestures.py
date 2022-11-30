@@ -3,8 +3,8 @@ import mediapipe as mp
 import time
 import math
 
-def euclid(n1, n2):
-  return math.dist([n1.x, n1.y], [n2.y, n2.y])
+def hyp(n1, n2):
+  return math.sqrt((n1.x-n2.y)**2 + (n1.y-n2.y)**2)
 
 def count_fingers(node):
   count = 0
@@ -29,7 +29,7 @@ def gestures(node): #Uses node position logic to interpert hand gestures and ret
     output = "Thumbs Down"
   if ((abs(node.landmark[10].x*100 - node.landmark[0].x*100)) > (abs(node.landmark[12].x*100 - node.landmark[0].x*100))) and abs(node.landmark[4].y) < abs(node.landmark[12].y):
     output = "Thumbs Up"
-  if num_fingers == 0 and (euclid(node.landmark[4], node.landmark[0]) < euclid(node.landmark[10], node.landmark[0])):
+  if num_fingers == 0 and (hyp(node.landmark[4], node.landmark[0]) < hyp(node.landmark[10], node.landmark[0])):
     output = "Fist"
   if (num_fingers == 3) and ((abs(node.landmark[4].y*100 - node.landmark[8].y*100)) < 5):
     output = "OK Sign"
@@ -65,7 +65,6 @@ def runMediaPipe():
             print("GESTURE RECOGNIZED: ", currentGesture)
             print("Gesture Recognizer Shutting Down...")
             cv2.destroyAllWindows()
-            cap.realse()
             break
           print("GESTURE RECOGNIZED: ", currentGesture) #<-------- THIS IF WHERE YOU'D PUT A FUNCTION TO INTERPRET THE RECOGNIZED GESTURES!!!!!!
         else:
@@ -73,10 +72,9 @@ def runMediaPipe():
         start_init = False
       drawing.draw_landmarks(frm, hand_nodes, hands.HAND_CONNECTIONS) #connects the nodes in video output
 
-    #cv2.imshow("window", frm) # Video output window (ONLY FOR TESTING PURPOSE WE WONT HAVE VIDEO OUT FOR THE MIRROR)
+    cv2.imshow("window", frm) # Video output window (ONLY FOR TESTING PURPOSE WE WONT HAVE VIDEO OUT FOR THE MIRROR)
     if cv2.waitKey(1) == 27: # 'Escape' key to cancel program
       cv2.destroyAllWindows()
-      cap.realse()
       break
 
 runMediaPipe()
