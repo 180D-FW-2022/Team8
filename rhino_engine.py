@@ -17,7 +17,7 @@ from threading import Thread
 import os
 import pvrhino
 from pvrecorder import PvRecorder
-import pyautogui
+#import pyautogui
 
 
 class RhinoDemo(Thread):
@@ -120,7 +120,7 @@ class RhinoDemo(Thread):
                         print("  intent : '%s'" % inference.intent)
                         print('  slots : {')
                         for slot, value in inference.slots.items():
-                            print("    %s : '%s'" % (slot, value))  #TODO: this is where i add the code to get spotify to play
+                            print("    %s : '%s'" % (slot, value))  
                             if slot == "beverage" and value == "americano":
                                 print('I ordered an americano, this should open the spotify gui')
                                 os.system('python spotify.py')
