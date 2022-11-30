@@ -39,6 +39,7 @@ Run app.py
         (will need to be updated in your Spotify app and SPOTIPY_REDIRECT_URI variable)
 """
 #import pyautogui
+from tkinter import *
 import os
 import sys
 from flask import Flask, session, request, redirect
@@ -65,9 +66,63 @@ scope = "user-read-playback-state user-modify-playback-state"
 macbook ='9ccb1139563c330086c0758871e1d7210201b0ec'
 iphone ='f18bf9d465b761b38a3af2f296db8fcb354de94d'
 raspi ='4cac88a0b6d837ba26b5c2f809827e29f94af828'
-device_id = np.array( [[macbook], [iphone], [raspi] ])
+device_id = np.array( [[macbook], [iphone], [raspi]])
 #macbook, iphone, raspberrypi
 sp_oauth = SpotifyOAuth(SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET, SPOTIPY_REDIRECT_URI, scope=scope)
+
+
+# function to search through json file
+def json_full_search(lookup_key, json_dict, search_result=[]):
+    if type(json_dict) == dict:
+        for key, value in json_dict.items():
+            if key == lookup_key:
+                search_result.append(value)
+            json_full_search(lookup_key, value, search_result)
+    elif type(json_dict) == list:
+        for element in json_dict:
+            json_full_search(lookup_key, element, search_result)
+    return search_result
+
+    # will read the track string and find all instances of "name:" and record the following string after that
+    # print currently playing track in format of: Artist:_____ Song:________
+def printCurrentTrack(temp):
+    # format of read names is: "artist name", "album name", "artist name", "song name"
+    # the window will remain open until the window is closed
+
+    track_name = None
+    track_artist = None
+    track_album = None
+    #album_cover_url = None
+    #count = 0
+
+    with open('track.json', 'w') as fp:
+        json.dump(temp, fp)
+
+    data_file = './track.json'
+    with open(data_file) as data_file:
+        data = json.load(data_file)
+        names=json_full_search('name', data)
+
+    track_name = names[3]
+    track_artist = names[0]
+    track_album = names[1]
+
+    track_list = ['You are currently playing: ', '', track_name, 'by ', track_artist, 'from ', track_album]
+
+    #track = np.array( [['This is what you are listening to \n'],[track_name], [track_artist], [track_album]] )
+    # print(track_name, '\n')
+    # print(track_artist, '\n')
+    # print(track_album, '\n')
+    return track_list
+    '''
+    root = Tk()
+    root.title("Current Track")
+    root.geometry("300x100")
+    artistLabel = Label(root, text='Artist: ' + track_artist).pack()
+    trackLabel = Label(root, text='Track: ' + track_name).pack()
+    albumLabel = Label(root, text='Album: ' + track_album).pack()
+    root.mainloop()
+    '''
 
 @app.route('/')
 def index():
@@ -140,7 +195,8 @@ def currently_playing():
     spotify = spotipy.Spotify(auth_manager=auth_manager)
     track = spotify.currently_playing()
     if not track is None:
-        return track
+        track = printCurrentTrack(track)
+        return '\n'.join(track)
 
 @app.route('/start_playback')
 def start_playback():
