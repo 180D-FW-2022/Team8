@@ -38,8 +38,9 @@ Run app.py
     NOTE: If receiving "port already in use" error, try other ports: 5000, 8090, 8888, etc...
         (will need to be updated in your Spotify app and SPOTIPY_REDIRECT_URI variable)
 """
-
+#import pyautogui
 import os
+import sys
 from flask import Flask, session, request, redirect
 from flask_session import Session
 import spotipy
@@ -60,7 +61,11 @@ SPOTIPY_CLIENT_ID='a5ba3a2595154188bc92d807932a7d1c'
 SPOTIPY_CLIENT_SECRET='6f6244fdcb304ac986d709ac1feedb7d'
 SPOTIPY_REDIRECT_URI='http://localhost:8080'
 scope = "user-read-playback-state,user-modify-playback-state"
-device_id = np.array( [['9ccb1139563c330086c0758871e1d7210201b0ec'], ['f18bf9d465b761b38a3af2f296db8fcb354de94d'], ['4cac88a0b6d837ba26b5c2f809827e29f94af828'] ])
+
+macbook ='9ccb1139563c330086c0758871e1d7210201b0ec'
+iphone ='f18bf9d465b761b38a3af2f296db8fcb354de94d'
+raspi ='4cac88a0b6d837ba26b5c2f809827e29f94af828'
+device_id = np.array( [[macbook], [iphone], [raspi] ])
 #macbook, iphone, raspberrypi
 sp_oauth = SpotifyOAuth(SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET, SPOTIPY_REDIRECT_URI, scope=scope)
 
@@ -88,10 +93,12 @@ def index():
     spotify = spotipy.Spotify(auth_manager=auth_manager)
     return f'<h2>Hi {spotify.me()["display_name"]}, ' \
            f'<small><a href="/sign_out">[sign out]<a/></small></h2>' \
+           f'<a href="/current_user">me</a> | ' \
            f'<a href="/playlists">my playlists</a> | ' \
            f'<a href="/currently_playing">currently playing</a> | ' \
            f'<a href="/start_playback">start playback</a> | ' \
-        f'<a href="/current_user">me</a>' \
+#           f'<a href="/end_spotify">end spotify</a>' \
+
 
 
 
@@ -120,9 +127,7 @@ def currently_playing():
         return redirect('/')
     spotify = spotipy.Spotify(auth_manager=auth_manager)
     track = spotify.currently_playing()
-    #track = spotify.current_user_playing_track()
     if not track is None:
-        print(track.name)
         return track
     return "No track currently playing."
 
@@ -133,7 +138,7 @@ def start_playback():
     if not auth_manager.validate_token(cache_handler.get_cached_token()):
         return redirect('/')
     spotify = spotipy.Spotify(auth_manager=sp_oauth)
-    return spotify.start_playback(device_id=device_id[2][0])
+    return spotify.start_playback(device_id=macbook)
 
 	
 
@@ -146,6 +151,11 @@ def current_user():
     spotify = spotipy.Spotify(auth_manager=auth_manager)
     return spotify.current_user()
 
+# @app.route('/end_spotify')
+# def end_spotify():
+#     pyautogui.press(['ctrl','c'])
+#     exit()
+    
 
 '''
 Following lines allow application to be run more conveniently with
