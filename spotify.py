@@ -119,8 +119,10 @@ def currently_playing():
     if not auth_manager.validate_token(cache_handler.get_cached_token()):
         return redirect('/')
     spotify = spotipy.Spotify(auth_manager=auth_manager)
-    track = spotify.current_user_playing_track()
+    track = spotify.currently_playing()
+    #track = spotify.current_user_playing_track()
     if not track is None:
+        print(track.name)
         return track
     return "No track currently playing."
 
