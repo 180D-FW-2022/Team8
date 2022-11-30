@@ -68,6 +68,8 @@ def runMediaPipe():
             cv2.destroyAllWindows()
             break
           print("GESTURE RECOGNIZED: ", currentGesture) #<-------- THIS IF WHERE YOU'D PUT A FUNCTION TO INTERPRET THE RECOGNIZED GESTURES!!!!!!
+          temp = "GESTURE RECOGNIZED: " + currentGesture
+          frm = cv2.putText(frm, temp, (00, 300), 1, 4,(0, 0, 0), 8, cv2.LINE_AA, False)
         else:
           pastGesture = currentGesture
         start_init = False
