@@ -38,11 +38,12 @@ def gestures(node): #Uses node position logic to interpert hand gestures and ret
   return output
 
 def runMediaPipe():
+  print("Gesture Recognizer Intializing...")
   cap = cv2.VideoCapture(0) # reads frames from video source
   drawing = mp.solutions.drawing_utils
   hands = mp.solutions.hands
   hand_obj = hands.Hands(max_num_hands=1)
-  start_init = False
+  start_init = False 
   pastGesture = " "
   currentGesture = "  "
   while True:
@@ -60,6 +61,12 @@ def runMediaPipe():
         #print(gestures(hand_nodes)) #Console output to test what gestures are recognized
         currentGesture = gestures(hand_nodes)
         if (currentGesture == pastGesture and currentGesture != ""):
+          if (currentGesture == "Fist"):
+            print("GESTURE RECOGNIZED: ", currentGesture)
+            print("Gesture Recognizer Shutting Down...")
+            cv2.destroyAllWindows()
+            cap.realse()
+            break
           print("GESTURE RECOGNIZED: ", currentGesture) #<-------- THIS IF WHERE YOU'D PUT A FUNCTION TO INTERPRET THE RECOGNIZED GESTURES!!!!!!
         else:
           pastGesture = currentGesture
