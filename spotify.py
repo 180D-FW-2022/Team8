@@ -104,12 +104,6 @@ def sign_out():
 @app.route('/playlists')
 def playlists():
     cache_handler = spotipy.cache_handler.FlaskSessionCacheHandler(session)
-    # auth_manager = spotipy.oauth2.SpotifyOAuth(client_id=SPOTIPY_CLIENT_ID, 
-    #                                            client_secret=SPOTIPY_CLIENT_SECRET, 
-    #                                            redirect_uri=SPOTIPY_REDIRECT_URI, 
-    #                                            scope='user-read-currently-playing playlist-modify-private',
-    #                                            cache_handler=cache_handler,
-    #                                            show_dialog=True)
     auth_manager = spotipy.oauth2.SpotifyOAuth(cache_handler=cache_handler)
     if not auth_manager.validate_token(cache_handler.get_cached_token()):
         return redirect('/')
@@ -121,12 +115,6 @@ def playlists():
 @app.route('/currently_playing')
 def currently_playing():
     cache_handler = spotipy.cache_handler.FlaskSessionCacheHandler(session)
-    #auth_manager = spotipy.oauth2.SpotifyOAuth(client_id=SPOTIPY_CLIENT_ID, 
-                                               client_secret=SPOTIPY_CLIENT_SECRET, 
-                                               redirect_uri=SPOTIPY_REDIRECT_URI, 
-                                               scope='user-read-currently-playing playlist-modify-private',
-                                               cache_handler=cache_handler,
-                                               show_dialog=True)
     auth_manager = spotipy.oauth2.SpotifyOAuth(cache_handler=cache_handler)
     if not auth_manager.validate_token(cache_handler.get_cached_token()):
         return redirect('/')
@@ -139,13 +127,7 @@ def currently_playing():
 @app.route('/start_playback')
 def start_playback():
     cache_handler = spotipy.cache_handler.FlaskSessionCacheHandler(session)
-    auth_manager = spotipy.oauth2.SpotifyOAuth(client_id=SPOTIPY_CLIENT_ID, 
-                                               client_secret=SPOTIPY_CLIENT_SECRET, 
-                                               redirect_uri=SPOTIPY_REDIRECT_URI, 
-                                               scope='user-read-currently-playing playlist-modify-private',
-                                               cache_handler=cache_handler,
-                                               show_dialog=True)
-    #auth_manager = spotipy.oauth2.SpotifyOAuth(cache_handler=cache_handler)
+    auth_manager = spotipy.oauth2.SpotifyOAuth(cache_handler=cache_handler)
     if not auth_manager.validate_token(cache_handler.get_cached_token()):
         return redirect('/')
     spotify = spotipy.Spotify(auth_manager=sp_oauth)
@@ -156,13 +138,7 @@ def start_playback():
 @app.route('/current_user')
 def current_user():
     cache_handler = spotipy.cache_handler.FlaskSessionCacheHandler(session)
-    auth_manager = spotipy.oauth2.SpotifyOAuth(client_id=SPOTIPY_CLIENT_ID, 
-                                               client_secret=SPOTIPY_CLIENT_SECRET, 
-                                               redirect_uri=SPOTIPY_REDIRECT_URI, 
-                                               scope='user-read-currently-playing playlist-modify-private',
-                                               cache_handler=cache_handler,
-                                               show_dialog=True)
-    #auth_manager = spotipy.oauth2.SpotifyOAuth(cache_handler=cache_handler)
+    auth_manager = spotipy.oauth2.SpotifyOAuth(cache_handler=cache_handler)
     if not auth_manager.validate_token(cache_handler.get_cached_token()):
         return redirect('/')
     spotify = spotipy.Spotify(auth_manager=auth_manager)
