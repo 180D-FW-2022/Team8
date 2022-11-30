@@ -54,10 +54,11 @@ def runMediaPipe():
 
     if res.multi_hand_landmarks:
       hand_nodes = res.multi_hand_landmarks[0]
+      frm = cv2.putText(frm, gestures(hand_nodes), (00, 185), 1, 10,(0, 0, 255), 8, cv2.LINE_AA, False)
       if not(start_init):
         end_delay = time.time()
         start_init = True
-      elif abs(end_delay-begin_delay) > 1.75: #<-------- Adjust recognition delay
+      elif abs(end_delay-begin_delay) > 1.3: #<-------- Adjust recognition delay
         #print(gestures(hand_nodes)) #Console output to test what gestures are recognized
         currentGesture = gestures(hand_nodes)
         if (currentGesture == pastGesture and currentGesture != ""):
