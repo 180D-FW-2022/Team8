@@ -17,6 +17,7 @@ from threading import Thread
 import os
 import pvrhino
 from pvrecorder import PvRecorder
+import pyautogui
 
 
 class RhinoDemo(Thread):
@@ -123,6 +124,12 @@ class RhinoDemo(Thread):
                             if slot == "beverage" and value == "americano":
                                 print('I ordered an americano, this should open the spotify gui')
                                 os.system('python spotify.py')
+                            if slot == "beverage" and value == "mocha":
+                                print('I ordered a mocha. this should start gesture recognition')
+                                os.system('python gestures.py')
+                            if slot == "beverage" and value == "latte":
+                                print('I ordered a latte. This program will end now')
+                                exit()
                         print('  }')
                         print('}\n')
                         
