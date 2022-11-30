@@ -62,12 +62,15 @@ SPOTIPY_REDIRECT_URI='http://localhost:8080'
 scope = "user-read-playback-state,user-modify-playback-state"
 device_id = np.array( [['9ccb1139563c330086c0758871e1d7210201b0ec'], ['f18bf9d465b761b38a3af2f296db8fcb354de94d'], ['4cac88a0b6d837ba26b5c2f809827e29f94af828'] ])
 #macbook, iphone, raspberrypi
-sp_oauth = SpotifyOAuth(SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET, scope=scope)
+sp_oauth = SpotifyOAuth(SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET, SPOTIPY_REDIRECT_URI, scope=scope)
 
 @app.route('/')
 def index():
     cache_handler = spotipy.cache_handler.FlaskSessionCacheHandler(session)
-    auth_manager = spotipy.oauth2.SpotifyOAuth(client_id=SPOTIPY_CLIENT_ID, client_secret=SPOTIPY_CLIENT_SECRET, redirect_uri=SPOTIPY_REDIRECT_URI, scope='user-read-currently-playing playlist-modify-private',
+    auth_manager = spotipy.oauth2.SpotifyOAuth(client_id=SPOTIPY_CLIENT_ID, 
+                                               client_secret=SPOTIPY_CLIENT_SECRET, 
+                                               redirect_uri=SPOTIPY_REDIRECT_URI, 
+                                               scope='user-read-currently-playing playlist-modify-private',
                                                cache_handler=cache_handler,
                                                show_dialog=True)
 
