@@ -127,6 +127,8 @@ class RhinoDemo(Thread):
                             if slot == "beverage" and value == "mocha":
                                 print('I ordered a mocha. this should start gesture recognition')
                                 os.system('python gestures.py')
+                            if slot == "beverage" and value == "espresso":
+                                os.system('python BerryNew.py')
                             if slot == "beverage" and value == "latte":
                                 print('I ordered a latte. This program will end now')
                                 exit()
