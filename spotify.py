@@ -59,7 +59,7 @@ Session(app)
 
 SPOTIPY_CLIENT_ID='a5ba3a2595154188bc92d807932a7d1c'
 SPOTIPY_CLIENT_SECRET='6f6244fdcb304ac986d709ac1feedb7d'
-SPOTIPY_REDIRECT_URI='http://localhost:8080'
+SPOTIPY_REDIRECT_URI='http://localhost:8090'
 scope = "user-read-playback-state,user-modify-playback-state"
 
 macbook ='9ccb1139563c330086c0758871e1d7210201b0ec'
@@ -182,7 +182,7 @@ Following lines allow application to be run more conveniently with
 '''
 if __name__ == '__main__':
     app.run(threaded=True, port=int(os.environ.get("PORT",
-                                                   os.environ.get("SPOTIPY_REDIRECT_URI", 'http://localhost:8080').split(":")[-1])))
+                                                   os.environ.get("SPOTIPY_REDIRECT_URI", 'http://localhost:8090').split(":")[-1])))
 
 #device id array
 
