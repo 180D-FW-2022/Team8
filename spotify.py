@@ -144,7 +144,7 @@ def start_playback():
     if not auth_manager.validate_token(cache_handler.get_cached_token()):
         return redirect('/')
     spotify = spotipy.Spotify(auth_manager=sp_oauth)
-    return spotify.start_playback(device_id=macbook)
+    return spotify.start_playback(device_id=raspi)
 
 	
 
