@@ -49,6 +49,7 @@ let config = {
 			module: "clock",
 			position: "top_left"
 		},
+		/*
 		{
 			module: "calendar",
 			header: "US Holidays",
@@ -62,6 +63,7 @@ let config = {
 				]
 			}
 		},
+		*/
 		{
 			module: "compliments",
 			position: "lower_third"
