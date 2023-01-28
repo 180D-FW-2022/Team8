@@ -29,8 +29,8 @@ let config = {
 	language: "en",
 	locale: "en-US",
 	logLevel: ["INFO", "LOG", "WARN", "ERROR"], // Add "DEBUG" for even more logging
-	timeFormat: 24,
-	units: "metric",
+	timeFormat: 12,
+	units: "imperial",
 	// serverOnly:  true/false/"local" ,
 	// local for armv6l processors, default
 	//   starts serveronly and then starts chrome browser
@@ -66,7 +66,41 @@ let config = {
 		*/
 		{
 			module: "compliments",
-			position: "lower_third"
+			position: "lower_third",
+			config: {
+				compliments: {
+					day_sunny: [
+						"Everyday is a good day but today shines brighter than others",
+						"Don't forget sunscreen"
+					],
+					snow: [
+						"It never snows here"
+					],
+					rain: [
+						"Don't forget an umbrella",
+						"Stay dry"
+					],
+					morning: [
+						"Good morning",
+						"How was your sleep?",
+						"Have a nice day"
+					],
+					afternoon: [
+						"Good afternoon",
+						"I hope you didn't just wake up"
+					],
+					evening: [
+						"What's for dinner?",
+						"Good evening"
+					],
+					"....-01-01": [
+						"Happy New Year"
+					],
+					"....-12-25": [
+						"Merry Christmas"
+					]
+				},
+			}
 		},
 		{
 			module: "weather",
@@ -84,6 +118,7 @@ let config = {
 			position: "top_right",
 			header: "Weather Forecast",
 			config: {
+				colored: true,
 				weatherProvider: "openweathermap",
 				type: "forecast",
 				location: "Los Angeles",
