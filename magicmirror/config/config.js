@@ -49,21 +49,27 @@ let config = {
 			module: "clock",
 			position: "top_left"
 		},
-		/*
 		{
 			module: "calendar",
-			header: "US Holidays",
+			header: "David's Calendar",
 			position: "top_left",
 			config: {
+				fetchInterval: 1000,
 				calendars: [
+					/*
 					{
 						symbol: "calendar-check",
 						url: "webcal://www.calendarlabs.com/ical-calendar/ics/76/US_Holidays.ics"
-					}
+					},
+					
+					{
+						symbol: "Your Calendar",
+						url: "Use google calendar's secret address in iCal Format"
+					},
+					*/
 				]
 			}
 		},
-		*/
 		{
 			module: "compliments",
 			position: "lower_third",
@@ -100,7 +106,7 @@ let config = {
 						"Merry Christmas"
 					]
 				},
-			}
+			},
 		},
 		{
 			module: "weather",
