@@ -112,8 +112,9 @@ class PorcupineDemo(Thread):
                 if result >= 0:
                     # if we have detected the correct word, then return 1
                     print('[%s] Detected %s' % (str(datetime.now()), keywords[result]))
+                    recorder.stop
                     os.system('python rhino_engine.py --access_key 4n7j8/reOKePM5xXFp+CmSFnBsgRZ5EF2m9bjghxif/OpZCG/LHcnw== --context_path ./engine_training/demo.rhn')
-                    
+                    exit()
         except pvporcupine.PorcupineInvalidArgumentError as e:
             args = (
                 self._access_key,
