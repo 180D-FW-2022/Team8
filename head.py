@@ -24,14 +24,14 @@ def gesture_rec(num):
 
 if __name__ == "__main__":
     #while
-    #os.system('python3 wake.py --access_key 4n7j8/reOKePM5xXFp+CmSFnBsgRZ5EF2m9bjghxif/OpZCG/LHcnw== --keyword_paths ./engine_training/wake_engine.ppn & python3 gestures.py')
-        t1 = threading.Thread(target=wake_up, args=(10,))
-        t2 = threading.Thread(target=gesture_rec, args=(10,))
-        # #t3 = threading.Thread(target=magic_mirror, args=(10,))
+    os.system('python3 wake.py --access_key 4n7j8/reOKePM5xXFp+CmSFnBsgRZ5EF2m9bjghxif/OpZCG/LHcnw== --keyword_paths ./engine_training/wake_engine.ppn & python3 gestures.py')
+        #t1 = threading.Thread(target=wake_up, args=(10,))
+        #t2 = threading.Thread(target=gesture_rec, args=(10,))
+        #t3 = threading.Thread(target=magic_mirror, args=(10,))
 
 
-        t1.start()
-        t2.start()
-        # #t3.start
+        #t1.start()
+        #t2.start()
+        #t3.start
     
         # print("Done!")
