@@ -2,6 +2,7 @@ import cv2
 import mediapipe as mp
 import time
 import math
+import os
 
 def hyp(n1, n2):
   return math.sqrt((n1.x-n2.y)**2 + (n1.y-n2.y)**2)
@@ -46,6 +47,7 @@ def runMediaPipe():
   start_init = False 
   pastGesture = " "
   currentGesture = "  "
+  gestureVal = 0
   while True:
     begin_delay = time.time()
     _, frm = cap.read()
@@ -65,13 +67,22 @@ def runMediaPipe():
           if (currentGesture == "Fist"):
             print("GESTURE RECOGNIZED: ", currentGesture)
             print("Gesture Recognizer Shutting Down...")
+            gestureVal = 10
             cv2.destroyAllWindows()
             break
+          if (currentGesture == "Thumbs Up"):
+            print("GESTURE RECOGNIZED: ", currentGesture)
+            print("Gesture Recognizer Initializing Voice Recognition...")  
+            gesetureVal = 20
+            cv2.destroyAllWindows()          
+            os.system('python rhino_engine.py --access_key 4n7j8/reOKePM5xXFp+CmSFnBsgRZ5EF2m9bjghxif/OpZCG/LHcnw== --context_path ./engine_training/demo.rhn')
           print("GESTURE RECOGNIZED: ", currentGesture) #<-------- THIS IF WHERE YOU'D PUT A FUNCTION TO INTERPRET THE RECOGNIZED GESTURES!!!!!!
           temp = "GESTURE RECOGNIZED: " + currentGesture
           frm = cv2.putText(frm, temp, (00, 300), 1, 4,(0, 0, 0), 8, cv2.LINE_AA, False)
+          gestureVal = 2
         else:
           pastGesture = currentGesture
+          gestureVal = 1
         start_init = False
       drawing.draw_landmarks(frm, hand_nodes, hands.HAND_CONNECTIONS) #connects the nodes in video output
 
@@ -79,5 +90,6 @@ def runMediaPipe():
     if cv2.waitKey(1) == 27: # 'Escape' key to cancel program
       cv2.destroyAllWindows()
       break
-
+  print(gestureVal)
+  return gestureVal
 runMediaPipe()
