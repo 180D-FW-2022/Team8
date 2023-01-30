@@ -114,6 +114,7 @@ class RhinoDemo(Thread):
 
                 is_finalized = rhino.process(pcm)
                 if is_finalized:
+                    recorder.stop
                     inference = rhino.get_inference()
                     if inference.is_understood:
                         print('{')
@@ -134,7 +135,6 @@ class RhinoDemo(Thread):
                                 exit()
                         print('  }')
                         print('}\n')
-                        
                     else:
                         print("Didn't understand the command.\n")
         except pvrhino.RhinoInvalidArgumentError as e:
