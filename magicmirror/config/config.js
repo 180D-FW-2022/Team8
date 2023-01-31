@@ -153,22 +153,33 @@ let config = {
 			//position: "bottom_left", // "bottom_bar" or "top_bar" for miniBar
 			config: {
 			  debug: false, // debug mode
-			//   style: "default", // "default" or "mini" available (inactive for miniBar)
-			//   moduleWidth: 250, // width of the module in px
-			//   control: "default", // "default" or "hidden"
-			//   showAlbumLabel: true, // if you want to show the label for the current song album
-			//   showVolumeLabel: true, // if you want to show the label for the current volume
-			//   showAccountName: false, // also show the current account name in the device label; usefull for multi account setup
-			//   //showAccountButton: true, // if you want to show the "switch account" control button
-			//   showDeviceButton: true, // if you want to show the "switch device" control button
-			//   useExternalModal: false, // if you want to use MMM-Modal for account and device popup selection instead of the build-in one (which is restricted to the album image size)
-			//   updateInterval: 1000, // update interval when playing
-			//   idleInterval: 30000, // update interval on idle
-			//   defaultAccount: 0, // default account number, attention : 0 is the first account
-			//   defaultDevice: null, // optional - if you want the "SPOTIFY_PLAY" notification to also work from "idle" status, you have to define your default device here (by name)
-			//   allowDevices: [], //If you want to limit devices to display info, use this. f.e. allowDevices: ["RASPOTIFY", "My Home speaker"],
-			//   onStart: null, // disable onStart feature with `null`
-
+			  style: "default", // "default" or "mini" available (inactive for miniBar)
+			  moduleWidth: 250, // width of the module in px
+			  control: "default", // "default" or "hidden"
+			  showAlbumLabel: true, // if you want to show the label for the current song album
+			  showVolumeLabel: true, // if you want to show the label for the current volume
+			  showAccountName: false, // also show the current account name in the device label; usefull for multi account setup
+			  //showAccountButton: true, // if you want to show the "switch account" control button
+			  showDeviceButton: true, // if you want to show the "switch device" control button
+			  useExternalModal: false, // if you want to use MMM-Modal for account and device popup selection instead of the build-in one (which is restricted to the album image size)
+			  updateInterval: 1000, // update interval when playing
+			  idleInterval: 30000, // update interval on idle
+			  defaultAccount: 0, // default account number, attention : 0 is the first account
+			  defaultDevice: null, // optional - if you want the "SPOTIFY_PLAY" notification to also work from "idle" status, you have to define your default device here (by name)
+			  allowDevices: [], //If you want to limit devices to display info, use this. f.e. allowDevices: ["RASPOTIFY", "My Home speaker"],
+			  
+			  //when magic mirror starts up, starts with studio ghibli music
+			  onStart: {
+				deviceName: "RASPOTIFY", //if null, current(last) activated device will be.
+				spotifyUri: "spotify:track:3ENXjRhFPkH8YSH3qBXTfQ",
+				//when search is set, sportifyUri will be ignored.
+				search: {
+				  type: "playlist", // `artist`, track`, `album`, `playlist` and its combination(`artist,playlist,album`) be available
+				  keyword: "studio ghibli",
+				  random:true,
+				}
+			  },
+			//   null, // disable onStart feature with `null`
 			  // if you want to start playback of song
 			  
 			  // if you want to send custom notifications when suspending the module, f.e. switch MMM-Touch to a different "mode"
@@ -210,8 +221,11 @@ let config = {
 			  refreshToken: "AQAVMPmfaQMr7fmg2HQNTM0LVM3UWczgbKmgYneHDfr6CQ8uQo0pY8WGzvhvemwBqaJAnilFHQmGvlXFAII3OZ048fk5f-CBxKSKwFdHunKREeR7ImWwpbsGTl6jhs67KqM"
 			}
 		  },
+		  
 	]
 };
+
+
 
 /*************** DO NOT EDIT THE LINE BELOW ***************/
 if (typeof module !== "undefined") {module.exports = config;}
