@@ -1,0 +1,37 @@
+{
+  "name": "mmm-spotify",
+  "version": "2.2.1",
+  "description": "Spotify display and controller for MagicMirror²",
+  "main": "MMM-Spotify.js",
+  "keywords": [
+    "magicmirror",
+    "magic mirror",
+    "module",
+    "magicmirrormodule",
+    "magic mirror module",
+    "spotify",
+    "music"
+  ],
+  "author": {
+    "name": "skuethe"
+  },
+  "contributors": [
+    "humbertovirtudes",
+    "eouia",
+    "Ejay-3D",
+    "bugsounet"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/skuethe/MMM-Spotify/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skuethe/MMM-Spotify"
+  },
+  "homepage": "https://github.com/skuethe/MMM-Spotify",
+  "dependencies": {
+    "open": "^6.4.0",
+    "axios": "^0.21.2"
+  }
+}
