@@ -150,7 +150,7 @@ let config = {
 		},
 		{
 			module: "MMM-Spotify",
-			//position: "bottom_left", // "bottom_bar" or "top_bar" for miniBar
+			position: "bottom_left", // "bottom_bar" or "top_bar" for miniBar
 			config: {
 			  debug: false, // debug mode
 			  style: "default", // "default" or "mini" available (inactive for miniBar)
@@ -168,18 +168,7 @@ let config = {
 			  defaultDevice: null, // optional - if you want the "SPOTIFY_PLAY" notification to also work from "idle" status, you have to define your default device here (by name)
 			  allowDevices: [], //If you want to limit devices to display info, use this. f.e. allowDevices: ["RASPOTIFY", "My Home speaker"],
 			  
-			  //when magic mirror starts up, starts with studio ghibli music
-			  onStart: {
-				deviceName: "RASPOTIFY", //if null, current(last) activated device will be.
-				spotifyUri: "spotify:track:3ENXjRhFPkH8YSH3qBXTfQ",
-				//when search is set, sportifyUri will be ignored.
-				search: {
-				  type: "playlist", // `artist`, track`, `album`, `playlist` and its combination(`artist,playlist,album`) be available
-				  keyword: "studio ghibli",
-				  random:true,
-				}
-			  },
-			//   null, // disable onStart feature with `null`
+			  //   null, // disable onStart feature with `null`
 			  // if you want to start playback of song
 			  
 			  // if you want to send custom notifications when suspending the module, f.e. switch MMM-Touch to a different "mode"
@@ -187,11 +176,12 @@ let config = {
 				{
 				  notification: "TOUCH_SET_MODE",
 				  payload: "myNormalMode",
+
 				},
 				{
 				  notification: "WHATEVERYOUWANT",
 				  payload: "sendMe",
-				}
+				},
 			  ],
 			  // if you want to send custom notifications when resuming the module, f.e. switch MMM-Touch to a different "mode"
 			  notificationsOnResume: [
@@ -209,19 +199,7 @@ let config = {
 				logo: true, // display Spotify logo in miniBar style
 			  }
 			}
-		  },
-		  {
-			module: "MMM-NowPlayingOnSpotify",
-			position: "top_left",
-		  
-			config: {
-			  clientID: "a5ba3a2595154188bc92d807932a7d1c",
-			  clientSecret: "6f6244fdcb304ac986d709ac1feedb7d",
-			  accessToken: "BQDm9qVFeTNnBT0YTxiZzkhJmg1A0gQy2OUF7eKR0n9KSghCoppzf_UcTJPRIkcV-tV-K5UnDUy81n5ffqdNktRB3JgY1cb7k-y9t-hjGAIKJqXVtqKD5lUOJEB9CAwNbSZsjFb5pO2Ip3dJ1Lo98o5qsaDNU0tGVvuGDtLsxADZoGxPAhFRXFZ7oO7V6HAb",
-			  refreshToken: "AQAVMPmfaQMr7fmg2HQNTM0LVM3UWczgbKmgYneHDfr6CQ8uQo0pY8WGzvhvemwBqaJAnilFHQmGvlXFAII3OZ048fk5f-CBxKSKwFdHunKREeR7ImWwpbsGTl6jhs67KqM"
-			}
-		  },
-		  
+		},		  
 	]
 };
 

@@ -124,17 +124,23 @@ class RhinoDemo(Thread):
                             print("    %s : '%s'" % (slot, value))  
                             if slot == "beverage" and value == "americano":
                                 print('I ordered an americano, this should open the spotify gui')
-                                os.system('python spotify.py')
+                                
+                                break
+                                #os.system('python spotify.py')
                             if slot == "beverage" and value == "mocha":
                                 print('I ordered a mocha. this should start gesture recognition')
-                                os.system('python gestures.py')
+                                break
+                                #os.system('python gestures.py')
                             if slot == "beverage" and value == "espresso":
-                                os.system('python BerryNew.py')
+                                print('I ordered an espresso. This program will end now')
+                                break
+                                #os.system('python BerryNew.py')
                             if slot == "beverage" and value == "latte":
                                 print('I ordered a latte. This program will end now')
                                 exit()
                         print('  }')
                         print('}\n')
+                        exit()
                     else:
                         print("Didn't understand the command.\n")
         except pvrhino.RhinoInvalidArgumentError as e:
