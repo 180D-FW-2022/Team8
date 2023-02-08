@@ -157,6 +157,8 @@ Module.register("calendar", {
 			let error_message = this.translate(payload.error_type);
 			this.error = this.translate("MODULE_CONFIG_ERROR", { MODULE_NAME: this.name, ERROR: error_message });
 			this.loaded = true;
+		} else if (notification === "TESTING") {
+			log.log("Calendar has received the notification");
 		}
 
 		this.updateDom(this.config.animationSpeed);
