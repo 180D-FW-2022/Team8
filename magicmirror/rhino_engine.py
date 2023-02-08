@@ -124,7 +124,6 @@ class RhinoDemo(Thread):
                             print("    %s : '%s'" % (slot, value))  
                             if slot == "beverage" and value == "americano":
                                 print('I ordered an americano, this should open the spotify gui')
-                                
                                 break
                                 #os.system('python spotify.py')
                             if slot == "beverage" and value == "mocha":

@@ -86,6 +86,7 @@
 		"moment": "^2.29.4",
 		"node-fetch": "^2.6.7",
 		"node-ical": "^0.15.3",
+		"python-shell": "^3.0.1",
 		"socket.io": "^4.5.4"
 	},
 	"_moduleAliases": {

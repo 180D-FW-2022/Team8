@@ -810,6 +810,7 @@ Module.register("MMM-Spotify", {
       }
     }
 
+
     for (const [key, config] of Object.entries(orderedButtonConfig)) {
       if (!this.config.showAccountButton && key === "SPOTIFY_CONTROL_ACCOUNTS") continue
       if (!this.config.showDeviceButton && key === "SPOTIFY_CONTROL_DEVICES") continue

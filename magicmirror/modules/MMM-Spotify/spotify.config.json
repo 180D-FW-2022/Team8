@@ -4,11 +4,6 @@
       "CLIENT_ID": "a5ba3a2595154188bc92d807932a7d1c",
       "CLIENT_SECRET": "6f6244fdcb304ac986d709ac1feedb7d",
       "TOKEN": "./margot_account.json"
-  },
-  {
-      "USERNAME": "david_account",
-      "CLIENT_ID": "PUT_SPOTIFY_APP_CLIENT_ID_OF_SECOND_ACCOUNT",
-      "CLIENT_SECRET": "PUT_SPOTIFY_APP_CLIENT_SECRET_OF_SECOND_ACCOUNT",
-      "TOKEN": "./SECONDUSERNAME_token.json"
   }
 ]
+
