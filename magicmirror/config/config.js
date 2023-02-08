@@ -218,13 +218,6 @@ let config = {
 			}
 		},
 
-		// {
-		// 	module: 'MMM-Rhino',
-		// 	position: "top_left",
-		// 	config: {
-		// 		foo: "I'm the King of the world!"
-		// 	}
-		// },
 		{
 			module:"MMM-VoiceControl",
 			position:"center",
@@ -249,7 +242,7 @@ let config = {
 				// print debugging messages from the node_helper
 				debug: true
 			}
-		}  
+		},
 	]
 };
 
