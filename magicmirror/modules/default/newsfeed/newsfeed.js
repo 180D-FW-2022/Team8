@@ -394,7 +394,9 @@ Module.register("newsfeed", {
 				desc: this.newsItems[this.activeItem].description,
 				url: this.getActiveItemURL()
 			});
-		}
+		} else if (notification === "TESTING"){
+			Log.log(this.name + " has caught the test notification");
+		  }
 	},
 
 	showFullArticle: function () {
