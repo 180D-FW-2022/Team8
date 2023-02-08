@@ -396,7 +396,9 @@ Module.register("newsfeed", {
 			});
 		} else if (notification === "TESTING"){
 			Log.log(this.name + " has caught the test notification");
-		  }
+		} else if (notification === "RECEIVED_NOTIF"){
+			Log.log(this.name + " has received from MMM_RHINO")
+		}
 	},
 
 	showFullArticle: function () {

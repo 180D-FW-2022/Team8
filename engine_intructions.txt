@@ -2,6 +2,7 @@ For rhino intention engine
 
 1. Do this step once
 sudo pip3 install pvrhino
+sudo pip3 install paho-mqtt
 
 2.
  python rhino_engine.py --access_key 4n7j8/reOKePM5xXFp+CmSFnBsgRZ5EF2m9bjghxif/OpZCG/LHcnw== --context_path ./engine_training/demo_pi.rhn
