@@ -117,6 +117,9 @@ Module.register("weather", {
 			this.indoorHumidity = this.roundValue(payload);
 			this.updateDom(300);
 		}
+		else if (notification === "testtest"){
+			Log.log(this.name + "blah");
+		}
 	},
 
 	// Select the template depending on the display type.

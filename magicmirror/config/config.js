@@ -218,14 +218,38 @@ let config = {
 			}
 		},
 
+		// {
+		// 	module: 'MMM-Rhino',
+		// 	position: "top_left",
+		// 	config: {
+		// 		foo: "I'm the King of the world!"
+		// 	}
+		// },
 		{
-			module: 'MMM-Rhino',
-			position: "top_left",
+			module:"MMM-VoiceControl",
+			position:"center",
+			disabled:false,
 			config: {
-				foo: "I'm the King of the world!"
+				// name of the python process to execute (could be python3)
+				pythonName: 'python3',
+				// command file in module folder
+				// if false, YOU will provide the full path to the python program
+				localfolder: true,
+	   
+				// spawn a python pgm that writes over and over (timed maybe), but keeps running
+				command: 'wake.py',
+				repetative: true,
+	   
+				// spawn a one time output  script, but relaunch it every cycletime milliseconds
+	   
+				// repretative: false,
+				// command: 'printitonce.py',
+				// cycletime: 2000,   // only used in repetative:false
+	   
+				// print debugging messages from the node_helper
+				debug: true
 			}
-		},
-		  
+		}  
 	]
 };
 
