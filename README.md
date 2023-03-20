@@ -1,5 +1,3 @@
-README
-
 If you are doing this project from scratch, here are the products and files you can download to get your device to run just like ours
 
 # Magic Mirror
