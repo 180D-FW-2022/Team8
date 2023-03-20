@@ -45,20 +45,14 @@ Module.register("MMM-SmartTouch", {
     }
   },
 
-  toggleONStandby: function () { //it is off and I want it on
+  toggleONStandby: function () { // I want it on
     const existingBodyClass = document.body.className;
-    if (existingBodyClass === "st-standby show") {
-      document.body.className = "st-standby fade";
-    } else {
-      document.body.className = "st-standby show";
-    }
+	document.body.className = "st-standby show";
   },
 
-  toggleOFFStandby: function () { //it is on and I want it off
+  toggleOFFStandby: function () { // I want it off
     const existingBodyClass = document.body.className;
-    if (existingBodyClass === "st-standby show") {
-      document.body.className = "st-standby fade";
-    } 
+    document.body.className = "st-standby fade";
   },
 
 
