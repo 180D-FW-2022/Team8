@@ -3,7 +3,9 @@ If you are doing this project from scratch, here are the products and files you 
 sudo pip3 install pvrhino  (This is for voice recognition)  
 sudo pip3 install paho-mqtt    (MQTT communication with wristband)  
 npm install express --save   (NPM)  
-sudo pip3 install pvporcupinedemo    (Wake to speech recognition)
+sudo pip3 install pvporcupinedemo    (Wake to speech recognition)  
+
+If you would like to do more readings about specific modules, the authors, and how to use them, navigate to magicmirror --> modules --> then choose any module starting with the MMM- name
 
 # Magic Mirror
 
