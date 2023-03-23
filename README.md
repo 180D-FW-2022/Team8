@@ -1,8 +1,8 @@
 If you are doing this project from scratch, here are the products and files you can download to get your device to run just like ours
 
-sudo pip3 install pvrhino  (This is for voice recognition)
-sudo pip3 install paho-mqtt    (MQTT communication with wristband)
-npm install express --save   (NPM)
+sudo pip3 install pvrhino  (This is for voice recognition)  
+sudo pip3 install paho-mqtt    (MQTT communication with wristband)  
+npm install express --save   (NPM)  
 sudo pip3 install pvporcupinedemo    (Wake to speech recognition)
 
 # Magic Mirror
