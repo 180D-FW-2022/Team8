@@ -9,19 +9,19 @@ If you would like to do more readings about specific modules, the authors, and h
 
 # Magic Mirror
 
-First you will need a Rasperry Pi 3 or 4 and to connect that to a monitor.
-To install onto your own Pi manually:
-First you will need to have nodejs on your Pi (if you already have nodejs, skip this step):
-1) In Pi terminal:
-$ curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-$ sudo apt install -y nodejs
+First you will need a Rasperry Pi 3 or 4 and to connect that to a monitor. <br />
+To install onto your own Pi manually: <br />
+First you will need to have nodejs on your Pi (if you already have nodejs, skip this step): <br />
+1) In Pi terminal: <br />
+$ curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -  <br />
+$ sudo apt install -y nodejs <br />
 
-3) Then install the smart mirror:
-$ git clone https://github.com/180D-FW-2022/Team8.git
-$ cd Team8
-$ npm run install-mm
-4) To start enter command:
-$ npm run start
+3) Then install the smart mirror:  <br />
+$ git clone https://github.com/180D-FW-2022/Team8.git  <br />
+$ cd Team8 <br />
+$ npm run install-mm <br />
+4) To start enter command: <br />
+$ npm run start <br />
 
 And you are good to go!
 
