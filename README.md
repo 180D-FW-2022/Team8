@@ -13,15 +13,15 @@ First you will need a Rasperry Pi 3 or 4 and to connect that to a monitor.
 To install onto your own Pi manually:
 First you will need to have nodejs on your Pi (if you already have nodejs, skip this step):
 1) In Pi terminal:
-> curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-> sudo apt install -y nodejs
+$ curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+$ sudo apt install -y nodejs
 
 3) Then install the smart mirror:
-> git clone https://github.com/180D-FW-2022/Team8.git
-> cd Team8
-> npm run install-mm
+$ git clone https://github.com/180D-FW-2022/Team8.git
+$ cd Team8
+$ npm run install-mm
 4) To start enter command:
-> npm run start
+$ npm run start
 
 And you are good to go!
 
