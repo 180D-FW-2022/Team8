@@ -24,8 +24,8 @@ $ npm run install-mm <br />
 $ npm run start <br />
 
 # Google Calendar Setup
-
-<iframe src="https://drive.google.com/file/d/1xnH8REPUciv6sqgnl-FbozGEzQidqx5i/preview" width="640" height="480" allow="autoplay"></iframe>
+Video Tutorial
+https://drive.google.com/file/d/1xnH8REPUciv6sqgnl-FbozGEzQidqx5i/view?usp=sharing
 
 And you are good to go!
 
