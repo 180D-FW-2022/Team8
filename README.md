@@ -1,3 +1,6 @@
+Disclaimer: <br />
+This is designed to run on Raspberry Pi OS: 64-bit Debian 11 Bullseye
+
 If you are doing this project from scratch, here are the products and files you can download to get your device to run just like ours
 
 sudo pip3 install pvrhino  (This is for voice recognition)  
