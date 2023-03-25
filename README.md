@@ -30,6 +30,14 @@ $ npm run start <br />
 Video Tutorial
 https://drive.google.com/file/d/1xnH8REPUciv6sqgnl-FbozGEzQidqx5i/view?usp=sharing
 
+In the video, it shows the current directory to be magicmirror but for you it will be Team8, or the directory that this repo is cloned to.
+The command to enter the config file is: <br />
+$ vim config/config.js <br /> 
+If you are unsure on how to use vim: <br />
+You can scroll down and use the arrow keys to navigate the file. <br />
+Press "i" to enter into insert mode and to be able to edit the file. <br />
+Once done editing, press "esc" and then type ":wq" and enter to save the file. 
+
 And you are good to go!
 
 # IMU Wristband
