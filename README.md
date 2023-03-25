@@ -25,7 +25,7 @@ $ npm run start <br />
 
 # Google Calendar Setup
 
-https://drive.google.com/file/d/1xnH8REPUciv6sqgnl-FbozGEzQidqx5i/view?usp=sharing
+<iframe src="https://drive.google.com/file/d/1xnH8REPUciv6sqgnl-FbozGEzQidqx5i/preview" width="640" height="480" allow="autoplay"></iframe>
 
 And you are good to go!
 
