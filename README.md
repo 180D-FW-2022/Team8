@@ -23,6 +23,10 @@ $ npm run install-mm <br />
 4) To start enter command: <br />
 $ npm run start <br />
 
+# Google Calendar Setup
+
+https://drive.google.com/file/d/1xnH8REPUciv6sqgnl-FbozGEzQidqx5i/view?usp=sharing
+
 And you are good to go!
 
 # IMU Wristband
